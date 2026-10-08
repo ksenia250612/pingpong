@@ -55,14 +55,15 @@ font2 = font.SysFont('Arial', 30)
 
 finish = False
 game = True#переключатель который удерживает игру в активном состоянии
-
+speed_y = 3 
+speed_x = 3
 
 
 while game:#отвечает за непрерывную отрисовку графики на экране, пока игра активна
     for e in event.get():#для каждого события в списке событий совершаемых пользователем
         if e.type == QUIT:#проверяет нажал ли игрок на крестик 
             game = False#если да, меняет флаг game на False
-        
+    
 
     if finish != True:
         window.blit(background,(0,0))#рисует фоновое изображение 
@@ -71,6 +72,8 @@ while game:#отвечает за непрерывную отрисовку гр
         player_r.update_right()
         player_r.reset()
         meteorit.reset()
+        meteorit.rect.x += speed_x
+        meteorit.rect.y += speed_y
 
     clock.tick(FPS)#цикл вайл выполнился 60 раз за секунду
     display.update()#обновляем содержимое окна
