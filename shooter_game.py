@@ -42,7 +42,7 @@ class Player(GameSprite):
 
 player_l = Player('player.png', 20, 410, 6 , 70, 90 )#экземпляр класса
 player_r = Player('player.png', 610, 410, 6 , 70, 90 )
-
+meteorit = GameSprite('meteorit.png', 320, 220, 0, 50,70)
 # mixer.init()#подключаем и настраиваем звуковую систему
 # mixer.music.load('vmprr.mp3')#Загружает файл jungles.ogg в память как фоновую музыку
 # mixer.music.play()#Сразу начинает играть загруженную музыку
@@ -70,6 +70,7 @@ while game:#отвечает за непрерывную отрисовку гр
         player_l.reset()#рисует игрока на экране в нужных координатах
         player_r.update_right()
         player_r.reset()
+        meteorit.reset()
 
     clock.tick(FPS)#цикл вайл выполнился 60 раз за секунду
     display.update()#обновляем содержимое окна
