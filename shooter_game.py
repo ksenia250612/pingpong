@@ -82,7 +82,12 @@ while game:#отвечает за непрерывную отрисовку гр
             speed_x *= -1
         if sprite.collide_rect(meteorit, player_r):
             speed_x *= -1
-
+        if meteorit.rect.x < 0:
+            text_lose = font1.render('player_l you lose!' , 1 ,(255, 0, 0))
+            window.blit(text_lose,(100,250))
+        if meteorit.rect.x > 660:
+            text_lose2 = font1.render('player_r you lose!' , 1 ,(255, 0, 0))
+            window.blit(text_lose2,(100,250))
             
 
     clock.tick(FPS)#цикл вайл выполнился 60 раз за секунду
