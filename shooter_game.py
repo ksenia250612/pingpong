@@ -78,6 +78,10 @@ while game:#отвечает за непрерывную отрисовку гр
             speed_y *= -1
         if meteorit.rect.y >450:
             speed_y *= -1
+        if sprite.collide_rect(meteorit, player_l):
+            speed_x *= -1
+        if sprite.collide_rect(meteorit, player_r):
+            speed_x *= -1
 
             
 
