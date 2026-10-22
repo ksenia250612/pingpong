@@ -40,9 +40,9 @@ class Player(GameSprite):
         if keys_pressed[K_DOWN]and self.rect.y <= 410:
             self.rect.y += self.speed
 
-player_l = Player('player.png', 20, 410, 6 , 70, 90 )#экземпляр класса
-player_r = Player('player.png', 610, 410, 6 , 70, 90 )
-meteorit = GameSprite('meteorit.png', 320, 220, 0, 50,70)
+player_l = Player('NLO.png', 20, 410, 6 , 70, 90 )#экземпляр класса
+player_r = Player('NLO.png', 610, 410, 6 , 70, 90 )
+meteorit = GameSprite('planet.png', 320, 220, 0, 50,70)
 # mixer.init()#подключаем и настраиваем звуковую систему
 # mixer.music.load('vmprr.mp3')#Загружает файл jungles.ogg в память как фоновую музыку
 # mixer.music.play()#Сразу начинает играть загруженную музыку
@@ -74,6 +74,12 @@ while game:#отвечает за непрерывную отрисовку гр
         meteorit.reset()
         meteorit.rect.x += speed_x
         meteorit.rect.y += speed_y
+        if meteorit.rect.y <0:
+            speed_y *= -1
+        if meteorit.rect.y >450:
+            speed_y *= -1
+
+            
 
     clock.tick(FPS)#цикл вайл выполнился 60 раз за секунду
     display.update()#обновляем содержимое окна
